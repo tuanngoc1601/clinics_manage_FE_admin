@@ -4,12 +4,12 @@ const axiosClient = createAxiosBaseUrl();
 
 const axiosClientToken = createAxiosClient();
 
-export const handleLoginService = (user) => {
-    return axiosClient.post("/api/v1/auth/login", user);
+export const handleLoginService = (data) => {
+    return axiosClient.post("/api/v1/auth/admin/login", data);
 };
 
 export const handleRegisterService = (user) => {
-    return axiosClient.post("/api/v1/auth/sign-up", user);
+    return axiosClient.post("/api/v1/auth/admin/sign-up", user);
 };
 
 export const handleLogoutService = () => {

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { loginAdmin } from "../../redux/requests/authRequestApi";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [dataForm, setDataForm] = useState({
         email: "",
         password: "",
@@ -15,8 +20,8 @@ const LoginForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(dataForm);
-    }
+        loginAdmin(dataForm, dispatch, navigate);
+    };
 
     return (
         <form className="space-y-4" onSubmit={handleSubmit}>

@@ -11,10 +11,10 @@ import {
 } from "../authSlice";
 import { authService } from "../../services";
 
-export const loginUser = async (user, dispatch, navigate) => {
+export const loginAdmin = async (data, dispatch, navigate) => {
     dispatch(loginStart());
     try {
-        const res = await authService.handleLoginService(user);
+        const res = await authService.handleLoginService(data);
         dispatch(loginSuccess(res.data.data));
         navigate("/");
     } catch (err) {
@@ -31,7 +31,7 @@ export const registerUser = async (user, dispatch, navigate) => {
             email: user.email,
             password: user.password,
         };
-        loginUser(userLogin, dispatch, navigate);
+        loginAdmin(userLogin, dispatch, navigate);
     } catch (err) {
         dispatch(registerFailed());
     }
