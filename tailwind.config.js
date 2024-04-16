@@ -10,7 +10,10 @@ module.exports = {
       },
       fontSize: {
         "22px": "22px",
-      }
+      },
+      margin: {
+        "260px": "260px",
+      },
     },
   },
   plugins: [],

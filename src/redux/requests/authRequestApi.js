@@ -42,7 +42,7 @@ export const logoutUser = async (dispatch, navigate) => {
     try {
         await authService.handleLogoutService();
         dispatch(logoutSuccess());
-        navigate("/login");
+        navigate("/auth/login");
     } catch (err) {
         dispatch(logoutFailed());
     }

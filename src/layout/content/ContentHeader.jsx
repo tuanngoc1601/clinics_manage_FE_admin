@@ -2,11 +2,20 @@ import React from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoSearchSharp } from "react-icons/io5";
 import { FaBell } from "react-icons/fa";
+import { authRequestApi } from "../../redux/requests";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ContentHeader = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const toggleSidebar = () => {};
+    const handleLogout = () => {
+        authRequestApi.logoutUser(dispatch, navigate);
+    };
+
     return (
-        <div className="w-full flex flex-row justify-between items-center flex-1 mt-6 py-2">
+        <div className="w-full flex flex-row justify-between items-center mt-6 py-2">
             <div className="flex flex-row items-center">
                 <button
                     type="button"
@@ -21,7 +30,10 @@ const ContentHeader = () => {
                 <button className="flex flex-row items-center justify-center text-xl">
                     <IoSearchSharp />
                 </button>
-                <button className="flex flex-row items-center justify-center text-xl">
+                <button
+                    className="flex flex-row items-center justify-center text-xl"
+                    onClick={handleLogout}
+                >
                     <FaBell />
                 </button>
             </div>

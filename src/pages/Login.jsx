@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginForm from "../components/auth/LoginForm";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const currentUser = useSelector((state) => state.auth.login.currentUser);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (currentUser) {
+            navigate("/");
+        }
+    }, []);
+
     return (
         <section className="w-full bg-gradient-to-r from-violet-500 to-fuchsia-500">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
