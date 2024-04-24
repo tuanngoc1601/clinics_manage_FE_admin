@@ -9,6 +9,7 @@ import DoctorManage from "./pages/clinics/DoctorManage";
 import UserManage from "./pages/clinics/UserManage";
 import { useSelector } from "react-redux";
 import ScheduleManage from "./pages/clinics/ScheduleManage";
+import ScheduleDetailManage from "./pages/clinics/ScheduleDetailManage";
 
 function App() {
     const pathname = useLocation().pathname;
@@ -41,6 +42,11 @@ function App() {
                         exact
                         path="/manage/schedules"
                         element={<ScheduleManage />}
+                    />
+                    <Route
+                        exact
+                        path="/manage/schedules/:doctorId"
+                        element={<ScheduleDetailManage />}
                     />
                 </Routes>
             </div>

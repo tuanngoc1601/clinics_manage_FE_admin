@@ -7,11 +7,11 @@ const Login = () => {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (currentUser) {
-            navigate("/");
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (currentUser) {
+    //         navigate("/");
+    //     }
+    // }, []);
 
     return (
         <section className="w-full bg-gradient-to-r from-violet-500 to-fuchsia-500">
