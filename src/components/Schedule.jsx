@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import TimeSchedule from "./common/TimeSchedule";
 import ReactMarkdown from "./common/ReactMarkdown";
 import { IoLocationSharp } from "react-icons/io5";
-import { FaChevronDown } from "react-icons/fa6";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { FaRegHandPointer } from "react-icons/fa6";
-import { doctorService } from "../services";
+import { doctorService, scheduleService } from "../services";
 import { formatDate } from "../utils/helper";
 import { Link } from "react-router-dom";
 
@@ -25,7 +24,20 @@ const Schedule = ({ id }) => {
         })();
     }, [id]);
 
-    useEffect(() => {}, [dateSchedule]);
+    useEffect(() => {
+        (async () => {
+            try {
+                const schedules =
+                    await scheduleService.getScheduleDoctorService(
+                        id,
+                        dateSchedule
+                    );
+                setScheduleTimes(schedules.data.data);
+            } catch (err) {
+                console.error(err);
+            }
+        })();
+    }, [dateSchedule]);
 
     return (
         <div className="w-full flex flex-col items-start justify-center py-4 border rounded-md shadow-md">
@@ -53,7 +65,9 @@ const Schedule = ({ id }) => {
                 </div>
                 <div>
                     <Link to={`/manage/schedules/${id}`}>
-                        <button className="px-4 py-2 rounded-md outline-none shadow-sm bg-cyan-300 text-md hover:opacity-80 text-gray-900">Detail</button>
+                        <button className="px-4 py-2 rounded-md outline-none shadow-sm bg-cyan-300 text-md hover:opacity-80 text-gray-900">
+                            Detail
+                        </button>
                     </Link>
                 </div>
             </div>
@@ -65,7 +79,9 @@ const Schedule = ({ id }) => {
                         name="schedule"
                         value={dateSchedule}
                         max="2099-12-31"
-                        onChange={(e) => setDateSchedule(e.target.value)}
+                        onChange={(e) =>
+                            setDateSchedule(formatDate(e.target.value))
+                        }
                         className="px-4 py-2 border-b text-sm ms-4 text-textDate font-semibold outline-none"
                     />
                     <p className="flex flex-row items-center justify-center text-sm font-semibold px-4 mt-2 gap-x-2">
@@ -75,14 +91,18 @@ const Schedule = ({ id }) => {
                         LỊCH KHÁM
                     </p>
                     <div className="flex flex-row flex-wrap ps-4 mt-4 gap-2.5">
-                        <TimeSchedule time={"08:30 - 09:00"} />
-                        <TimeSchedule time={"09:00 - 09:30"} />
-                        <TimeSchedule time={"09:30 - 10:00"} />
-                        <TimeSchedule time={"10:00 - 10:30"} />
-                        <TimeSchedule time={"10:30 - 11:00"} />
-                        <TimeSchedule time={"14:00 - 14:30"} />
-                        <TimeSchedule time={"14:30 - 15:00"} />
-                        <TimeSchedule time={"15:00 - 15:30"} />
+                        {scheduleTimes?.length > 0 ? (
+                            <>
+                                {scheduleTimes.map((schedule) => (
+                                    <TimeSchedule
+                                        key={schedule.id}
+                                        time={schedule.time.value}
+                                    />
+                                ))}
+                            </>
+                        ) : (
+                            <p>Không có lịch khám</p>
+                        )}
                     </div>
                     <p className="flex text-xs text-textColor px-4 mt-2">
                         Chọn <FaRegHandPointer className="text-sm mx-1" /> và
