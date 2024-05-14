@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import HomePage from "./pages/clinics/HomePage";
@@ -9,7 +10,8 @@ import DoctorManage from "./pages/clinics/DoctorManage";
 import UserManage from "./pages/clinics/UserManage";
 import { useSelector } from "react-redux";
 import ScheduleManage from "./pages/clinics/ScheduleManage";
-import ScheduleDetailManage from "./pages/clinics/ScheduleDetailManage";
+import DoctorInfoManage from "./pages/clinics/DoctorInfoManage";
+import DoctorScheduleManage from "./pages/clinics/DoctorScheduleManage";
 
 function App() {
     const pathname = useLocation().pathname;
@@ -46,10 +48,33 @@ function App() {
                     <Route
                         exact
                         path="/manage/schedules/:doctorId"
-                        element={<ScheduleDetailManage />}
+                        element={<DoctorScheduleManage />}
+                    />
+                    <Route
+                        exact
+                        path="/manage/doctor-info/:doctorId"
+                        element={<DoctorInfoManage />}
                     />
                 </Routes>
             </div>
+            <Toaster
+                containerClassName="font-casual text-sm font-semibold"
+                position="top-right"
+                gutter={8}
+                // toastOptions={{
+                //     success: {
+                //         className: "bg-green-400",
+                //         style: {
+                //             background: "green",
+                //         },
+                //     },
+                //     error: {
+                //         style: {
+                //             background: "red",
+                //         },
+                //     },
+                // }}
+            />
         </div>
     );
 }

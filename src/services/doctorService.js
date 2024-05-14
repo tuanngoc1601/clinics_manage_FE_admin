@@ -11,3 +11,7 @@ export const getDoctorClinicService = (clinic_id) => {
 export const getDoctorDetailService = (doctorId) => {
     return axiosClient.get(`/api/v1/doctor/get-doctor-by-id/${doctorId}`);
 };
+
+export const updateDoctorInfoService = (doctor_id, info) => {
+    return axiosClient.put(`/api/v1/doctor/update-doctor-info/${doctor_id}`, info);
+};

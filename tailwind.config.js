@@ -51,6 +51,10 @@ module.exports = {
         textColor: "#333333",
         textBooking: "#555555",
         primary: "#EDFFFA",
+      },
+      gridTemplateColumns: {
+        "2lg": '290px 1fr',
+        "3lg": '70px 1fr',
       }
     },
   },

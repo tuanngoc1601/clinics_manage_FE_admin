@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DataTable from "../../components/common/DataTable";
 import { doctorService } from "../../services";
 import { useSelector } from "react-redux";
@@ -6,6 +7,7 @@ import { useSelector } from "react-redux";
 const DoctorManage = () => {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -58,7 +60,7 @@ const DoctorManage = () => {
                         icon: "edit",
                         tooltip: "Edit Data",
                         onClick: (event, rowData) => {
-                            alert("You want to edit " + rowData.id);
+                            navigate(`/manage/doctor-info/${rowData.id}`);
                         },
                     },
                     {
