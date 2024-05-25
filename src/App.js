@@ -21,7 +21,7 @@ function App() {
         <div className="w-full min-h-screen h-auto flex flex-row items-center justify-start bg-white">
             {currentUser && <Sidebar />}
             <div
-                className={`w-full h-screen flex flex-1 flex-col items-center justify-start ${
+                className={`w-full h-screen flex flex-1 flex-col items-center justify-start mb-4 ${
                     currentUser ? "px-6 ms-260px" : ""
                 }`}
             >
