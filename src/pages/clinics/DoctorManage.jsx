@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import DataTable from "../../components/common/DataTable";
 import { doctorService } from "../../services";
 import { useSelector } from "react-redux";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const DoctorManage = () => {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
@@ -57,14 +59,14 @@ const DoctorManage = () => {
                 data={data}
                 actions={[
                     {
-                        icon: "edit",
+                        icon: () => <EditIcon className="text-orange-400" />,
                         tooltip: "Edit Data",
                         onClick: (event, rowData) => {
                             navigate(`/manage/doctor-info/${rowData.id}`);
                         },
                     },
                     {
-                        icon: "delete",
+                        icon: () => <DeleteIcon className="text-red-400" />,
                         tooltip: "Delete Data",
                         onClick: (event, rowData) => {
                             alert("You want to delete " + rowData.id);
