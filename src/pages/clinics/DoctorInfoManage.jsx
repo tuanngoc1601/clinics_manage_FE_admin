@@ -111,13 +111,6 @@ const DoctorInfoManage = () => {
                             <CKEditor
                                 editor={ClassicEditor}
                                 data={doctorInfo?.introduction}
-                                // onReady={(editor) => {
-                                //     // You can store the "editor" and use when it is needed.
-                                //     console.log(
-                                //         "Editor is ready to use!",
-                                //         editor
-                                //     );
-                                // }}
                                 onChange={(event, editor) => {
                                     setDoctorInfo((prevState) => ({
                                         ...prevState,
