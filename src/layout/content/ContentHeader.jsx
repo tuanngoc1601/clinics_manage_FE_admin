@@ -1,18 +1,22 @@
 import React from "react";
 import { FiMenu } from "react-icons/fi";
-import { IoSearchSharp } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
 import { authRequestApi } from "../../redux/requests";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ContentHeader = () => {
+    const currentUser = useSelector((state) => state.auth.login.currentUser);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const toggleSidebar = () => {};
     const handleLogout = () => {
         authRequestApi.logoutUser(dispatch, navigate);
     };
+
+    console.log(currentUser["Clinic.avatar"]);
 
     return (
         <div className="w-full flex flex-row justify-between items-center mt-6 py-2">
@@ -27,14 +31,17 @@ const ContentHeader = () => {
                 <h3 className="text-lg font-semibold text-gray-400">Home</h3>
             </div>
             <div className="flex flex-row items-center justify-end gap-x-3">
-                <button className="flex flex-row items-center justify-center text-xl">
-                    <IoSearchSharp />
-                </button>
+                <img
+                    src={currentUser?.["Clinic.avatar"]}
+                    alt=""
+                    className="w-8 h-8 rounded-full object-contain border "
+                />
+                <span className="text-sm font-medium">{currentUser?.firstName} {currentUser?.lastName}</span>
                 <button
                     className="flex flex-row items-center justify-center text-xl"
                     onClick={handleLogout}
                 >
-                    <FaBell />
+                    <IoIosLogOut />
                 </button>
             </div>
         </div>

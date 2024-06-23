@@ -2,16 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { navigationLinks } from "../../utils/navigation";
 import { navLinkStyle } from "../../utils/active";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+    const currentUser = useSelector((state) => state.auth.login.currentUser);
     return (
         <aside
             id="default-sidebar"
             className="fixed top-0 left-0 z-40 w-260 h-screen transition-transform -translate-x-full sm:translate-x-0"
         >
             <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-                <ul className="space-y-2 font-medium">
-                    <li>
+                <h3 className="text-white font-bold text-xl text-center mt-4">{currentUser?.["Clinic.name"]}</h3>
+                <ul className="space-y-2 font-medium mt-6">
+                    {/* <li>
                         <a
                             href="#"
                             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -28,8 +31,8 @@ const Sidebar = () => {
                             </svg>
                             <span className="ms-3">Dashboard</span>
                         </a>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <a
                             href="#"
                             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -50,7 +53,7 @@ const Sidebar = () => {
                                 Pro
                             </span>
                         </a>
-                    </li>
+                    </li> */}
                     <li>
                         <Link
                             to={"/manage/bookings"}
@@ -136,7 +139,7 @@ const Sidebar = () => {
                             </span>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <a
                             href="#"
                             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -156,7 +159,7 @@ const Sidebar = () => {
                                 Sign Up
                             </span>
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </aside>

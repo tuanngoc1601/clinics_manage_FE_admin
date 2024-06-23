@@ -35,7 +35,11 @@ const DoctorManage = () => {
                         render: (rowData) => (
                             <img
                                 src={rowData.image}
-                                className="w-32 h-16 object-contain rounded-md"
+                                style={{
+                                    width: "64px",
+                                    height: "64px",
+                                    borderRadius: "8px",
+                                }}
                             />
                         ),
                     },
