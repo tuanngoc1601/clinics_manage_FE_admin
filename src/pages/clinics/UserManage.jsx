@@ -57,7 +57,9 @@ const UserManage = () => {
                         icon: () => <EditIcon className="text-orange-400" />,
                         tooltip: "Edit Data",
                         onClick: (event, rowData) => {
-                            navigate(`/manage/doctor-info/${rowData.id}`);
+                            navigate(
+                                `/manage/medical-record/${rowData.User.id}`
+                            );
                         },
                     },
                 ]}

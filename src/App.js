@@ -13,6 +13,7 @@ import ScheduleManage from "./pages/clinics/ScheduleManage";
 import DoctorInfoManage from "./pages/clinics/DoctorInfoManage";
 import DoctorScheduleManage from "./pages/clinics/DoctorScheduleManage";
 import BookingManage from "./pages/clinics/BookingManage";
+import MedicalRecord from "./pages/clinics/MedicalRecord";
 
 function App() {
     const pathname = useLocation().pathname;
@@ -60,6 +61,11 @@ function App() {
                         exact
                         path="/manage/bookings"
                         element={<BookingManage />}
+                    />
+                    <Route
+                        exact
+                        path="/manage/medical-record/:userId"
+                        element={<MedicalRecord />}
                     />
                 </Routes>
             </div>

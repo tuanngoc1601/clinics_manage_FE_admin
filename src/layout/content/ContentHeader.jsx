@@ -16,8 +16,6 @@ const ContentHeader = () => {
         authRequestApi.logoutUser(dispatch, navigate);
     };
 
-    console.log(currentUser["Clinic.avatar"]);
-
     return (
         <div className="w-full flex flex-row justify-between items-center mt-6 py-2">
             <div className="flex flex-row items-center">

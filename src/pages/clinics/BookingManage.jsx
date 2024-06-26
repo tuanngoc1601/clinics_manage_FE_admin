@@ -53,7 +53,17 @@ const BookingManage = () => {
                         title: "Status",
                         field: "Doctor_Schedule.status.value",
                         render: (rowData) => (
-                            <span className="px-2 py-0.5 bg-green-300 rounded-md cursor-pointer">
+                            <span
+                                className={`px-2 py-0.5 rounded-md ${
+                                    rowData.Doctor_Schedule.status.value ===
+                                    "pendding"
+                                        ? "bg-green-300"
+                                        : rowData.Doctor_Schedule.status
+                                              .value === "booked"
+                                        ? "bg-slate-400 cursor-pointer"
+                                        : "bg-orange-400 cursor-pointer"
+                                }`}
+                            >
                                 {rowData.Doctor_Schedule.status.value}
                             </span>
                         ),
