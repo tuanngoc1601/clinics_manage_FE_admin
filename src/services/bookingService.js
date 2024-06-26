@@ -1,7 +1,5 @@
 import { createAxiosBaseUrl, createAxiosClient } from "../axios";
 
-const axiosClient = createAxiosBaseUrl();
-
 const axiosClientToken = createAxiosClient();
 
 export const getBookingClinicService = (clinic_id) => {
