@@ -247,7 +247,7 @@ const DoctorScheduleManage = () => {
                         type="submit"
                         className="px-4 py-2 rounded outline-none bg-green-300"
                     >
-                        Add
+                        Thêm
                     </button>
                     <div className="grid grid-cols-2 gap-4 divide-x w-full">
                         <div className="flex flex-col">
@@ -346,7 +346,7 @@ const DoctorScheduleManage = () => {
                     className="flex flex-col items-end justify-center"
                 >
                     <button className="px-4 py-2 rounded outline-none bg-red-300">
-                        Delete
+                        Xoá
                     </button>
                     <div className="grid grid-cols-2 gap-4 divide-x w-full">
                         <div className="flex flex-col">

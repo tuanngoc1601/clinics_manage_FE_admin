@@ -24,7 +24,7 @@ const UserManage = () => {
     return (
         <div className="flex items-center justify-center gap-4 pt-6 w-full pb-6">
             <DataTable
-                title={"Patients"}
+                title={"Người dùng"}
                 columns={[
                     {
                         title: "First Name",
@@ -35,7 +35,7 @@ const UserManage = () => {
                         field: "User.lastName",
                     },
                     {
-                        title: "Phone Number",
+                        title: "Số điện thoại",
                         field: "User.phoneNumber",
                     },
                     {
@@ -43,11 +43,11 @@ const UserManage = () => {
                         field: "User.email",
                     },
                     {
-                        title: "Gender",
+                        title: "Giới tính",
                         field: "User.gender",
                     },
                     {
-                        title: "Address",
+                        title: "Địa chỉ",
                         field: "User.address",
                     },
                 ]}

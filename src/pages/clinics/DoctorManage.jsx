@@ -27,10 +27,10 @@ const DoctorManage = () => {
     return (
         <div className="flex items-center justify-center gap-4 pt-6 w-full pb-6">
             <DataTable
-                title={"Doctors"}
+                title={"Bác sĩ"}
                 columns={[
                     {
-                        title: "Image",
+                        title: "Ảnh",
                         field: "image",
                         render: (rowData) => (
                             <img
@@ -44,7 +44,7 @@ const DoctorManage = () => {
                         ),
                     },
                     {
-                        title: "Name",
+                        title: "Tên",
                         field: "name",
                     },
                     {
@@ -52,11 +52,11 @@ const DoctorManage = () => {
                         field: "email",
                     },
                     {
-                        title: "Address",
+                        title: "Địa chỉ",
                         field: "address",
                     },
                     {
-                        title: "Gender",
+                        title: "Giới tính",
                         field: "gender",
                     },
                 ]}

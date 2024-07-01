@@ -25,14 +25,14 @@ const MedicalRecord = () => {
                 <div className="grid grid-cols-2 w-[60%] gap-x-6 mt-4">
                     <div className="flex flex-col gap-2">
                         <p>
-                            <strong>Name:</strong> {data?.firstName}{" "}
+                            <strong>Tên:</strong> {data?.firstName}{" "}
                             {data?.lastName}
                         </p>
                         <p>
-                            <strong>Address:</strong> {data?.address}
+                            <strong>Địa chỉ:</strong> {data?.address}
                         </p>
                         <p>
-                            <strong>Phone number:</strong> {data?.phoneNumber}
+                            <strong>Số điện thoại:</strong> {data?.phoneNumber}
                         </p>
                     </div>
                     <div className="flex flex-col gap-2">
@@ -40,7 +40,7 @@ const MedicalRecord = () => {
                             <strong>Email:</strong> {data?.email}
                         </p>
                         <p>
-                            <strong>Gender:</strong> {data?.gender}
+                            <strong>Giới tính:</strong> {data?.gender}
                         </p>
                     </div>
                 </div>

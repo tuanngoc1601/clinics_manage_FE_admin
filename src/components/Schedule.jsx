@@ -66,7 +66,7 @@ const Schedule = ({ id }) => {
                 <div>
                     <Link to={`/manage/schedules/${id}`}>
                         <button className="px-4 py-2 rounded-md outline-none shadow-sm bg-cyan-300 text-md hover:opacity-80 text-gray-900">
-                            Detail
+                            Chi tiết
                         </button>
                     </Link>
                 </div>

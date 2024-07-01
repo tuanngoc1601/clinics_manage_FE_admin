@@ -27,30 +27,30 @@ const BookingManage = () => {
     return (
         <div className="flex items-center justify-center gap-4 pt-6 w-full pb-6">
             <DataTable
-                title={"Bookings"}
+                title={"Lịch hẹn"}
                 columns={[
                     {
-                        title: "Name",
+                        title: "Tên",
                         field: "patient_name",
                     },
                     {
-                        title: "Phone",
+                        title: "Số điện thoại",
                         field: "phone_number",
                     },
                     {
-                        title: "Date",
+                        title: "Ngày khám",
                         field: "Doctor_Schedule.booking_date",
                     },
                     {
-                        title: "Reason",
+                        title: "Triệu chứng",
                         field: "reason",
                     },
                     {
-                        title: "Gender",
+                        title: "Giới tính",
                         field: "gender",
                     },
                     {
-                        title: "Status",
+                        title: "Trạng thái",
                         field: "Doctor_Schedule.status.value",
                         render: (rowData) => (
                             <span

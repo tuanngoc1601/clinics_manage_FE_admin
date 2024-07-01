@@ -71,7 +71,7 @@ const DoctorInfoManage = () => {
                         />
                     </div>
                     <div className="grid grid-cols-3lg items-center justify-start w-full gap-x-4">
-                        <label className="font-semibold">Name: </label>
+                        <label className="font-semibold">Tên: </label>
                         <input
                             type="text"
                             name="name"
@@ -81,7 +81,7 @@ const DoctorInfoManage = () => {
                         />
                     </div>
                     <div className="grid grid-cols-3lg items-center justify-start w-full gap-x-4">
-                        <label className="font-semibold">Address: </label>
+                        <label className="font-semibold">Địa chỉ: </label>
                         <input
                             type="text"
                             name="address"
@@ -91,7 +91,7 @@ const DoctorInfoManage = () => {
                         />
                     </div>
                     <div className="flex flex-col items-start justify-start w-full gap-y-1">
-                        <label className="font-semibold">Description: </label>
+                        <label className="font-semibold">Mô tả: </label>
                         <div className="w-full">
                             <CKEditor
                                 editor={ClassicEditor}
@@ -106,7 +106,7 @@ const DoctorInfoManage = () => {
                         </div>
                     </div>
                     <div className="flex flex-col items-start justify-start w-full gap-y-1">
-                        <label className="font-semibold">Introduction: </label>
+                        <label className="font-semibold">Giới thiệu: </label>
                         <div className="w-full doctor-introduction">
                             <CKEditor
                                 editor={ClassicEditor}
@@ -125,7 +125,7 @@ const DoctorInfoManage = () => {
                             className="px-4 py-2 rounded-md shadow-sm bg-orange-300 hover:opacity-80"
                             onClick={updateDoctorInfo}
                         >
-                            Update
+                            Cập nhật
                         </button>
                     </div>
                 </div>

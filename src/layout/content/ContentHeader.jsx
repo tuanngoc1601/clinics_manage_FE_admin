@@ -26,7 +26,7 @@ const ContentHeader = () => {
                 >
                     <FiMenu className="w-5" />
                 </button>
-                <h3 className="text-lg font-semibold text-gray-400">Home</h3>
+                <h3 className="text-lg font-semibold text-gray-400">Trang chủ</h3>
             </div>
             <div className="flex flex-row items-center justify-end gap-x-3">
                 <img
