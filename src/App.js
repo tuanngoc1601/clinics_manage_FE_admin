@@ -14,7 +14,6 @@ import DoctorInfoManage from "./pages/clinics/DoctorInfoManage";
 import DoctorScheduleManage from "./pages/clinics/DoctorScheduleManage";
 import BookingManage from "./pages/clinics/BookingManage";
 import MedicalRecord from "./pages/clinics/MedicalRecord";
-import Test from "./pages/clinics/Test";
 
 function App() {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
@@ -62,12 +61,6 @@ function App() {
                         path="/manage/bookings"
                         element={<BookingManage />}
                     />
-                    <Route
-                        exact
-                        path="/manage/medical-record/:userId"
-                        element={<MedicalRecord />}
-                    />
-                    <Route exact path="/test" element={<Test />} />
                 </Routes>
             </div>
             <Toaster
