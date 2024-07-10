@@ -221,7 +221,7 @@ const BookingManage = () => {
                                                     );
                                                 if (res.status === 200) {
                                                     toast.success(
-                                                        "Confirmed booking!"
+                                                        "Xác nhận lịch khám thành công!"
                                                     );
                                                     const bookings =
                                                         await bookingService.getBookingClinicService(
@@ -230,7 +230,7 @@ const BookingManage = () => {
                                                     setData(bookings.data.data);
                                                 } else {
                                                     toast.error(
-                                                        "Confirm failed!"
+                                                        "Xác nhận lịch khám không thành công!"
                                                     );
                                                 }
                                             }}

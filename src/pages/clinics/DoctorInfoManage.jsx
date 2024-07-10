@@ -24,7 +24,7 @@ const DoctorInfoManage = () => {
             description: doctorInfo.description,
             introduction: doctorInfo.introduction,
         });
-        toast.success("Doctor information updated successfully!", {
+        toast.success("Cập nhật thông tin bác sĩ thành công!", {
             duration: 4000,
             className: "bg-green-300 text-orange-600"
         });

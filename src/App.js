@@ -61,6 +61,11 @@ function App() {
                         path="/manage/bookings"
                         element={<BookingManage />}
                     />
+                    <Route
+                        exact
+                        path="/manage/medical-record/:userId"
+                        element={<MedicalRecord />}
+                    />
                 </Routes>
             </div>
             <Toaster

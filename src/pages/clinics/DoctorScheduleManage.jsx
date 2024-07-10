@@ -49,7 +49,7 @@ const DoctorScheduleManage = () => {
             if (state === true) times.push(index + 1);
         });
         if (!times.length) {
-            toast.error("Something went wrong!", {
+            toast.error("Có lỗi xảy ra!", {
                 duration: 4000,
                 className: "bg-green-300 text-orange-600",
             });
@@ -65,7 +65,7 @@ const DoctorScheduleManage = () => {
 
         setAddCheckedState(new Array(timeCode.length).fill(false));
         if (!response) {
-            toast.error("Add schedule time failed!");
+            toast.error("Thêm lịch khám không thành công!");
         }
 
         const schedules = await scheduleService.getScheduleDoctorService(
@@ -74,7 +74,7 @@ const DoctorScheduleManage = () => {
         );
         setScheduleTimes(schedules.data.data);
 
-        toast.success("Added schedule time successfully!");
+        toast.success("Thêm lịch khám thành công!");
     };
 
     const deteleTimeSchedule = async (event) => {
@@ -84,7 +84,7 @@ const DoctorScheduleManage = () => {
             if (state === true) times.push(index + 1);
         });
         if (!times.length) {
-            toast.error("Something went wrong!", {
+            toast.error("Có lỗi xảy ra!", {
                 duration: 4000,
                 className: " bg-green-300 text-orange-600",
             });
@@ -100,7 +100,7 @@ const DoctorScheduleManage = () => {
         setDeleteCheckedState(new Array(timeCode.length).fill(false));
 
         if (!response) {
-            toast.error("Delete schedule time failed!");
+            toast.error("Xoá lịch khám không thành công!");
         }
 
         const schedules = await scheduleService.getScheduleDoctorService(
@@ -109,7 +109,7 @@ const DoctorScheduleManage = () => {
         );
         setScheduleTimes(schedules.data.data);
 
-        toast.success("Deleted schedule time successfully!");
+        toast.success("Xoá lịch khám thành công!");
     };
 
     useEffect(() => {

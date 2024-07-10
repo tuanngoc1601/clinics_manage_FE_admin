@@ -159,7 +159,7 @@ const DoctorManage = () => {
                                     {doctor.gender === "male" ? "Nam" : "Nữ"}
                                 </td>
 
-                                <td className="border px-4 py-2">
+                                <td className="border px-4 py-2 text-center">
                                     <button
                                         type="button"
                                         className="text-xl text-orange-400"
