@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -14,9 +14,9 @@ import DoctorInfoManage from "./pages/clinics/DoctorInfoManage";
 import DoctorScheduleManage from "./pages/clinics/DoctorScheduleManage";
 import BookingManage from "./pages/clinics/BookingManage";
 import MedicalRecord from "./pages/clinics/MedicalRecord";
+import Test from "./pages/clinics/Test";
 
 function App() {
-    const pathname = useLocation().pathname;
     const currentUser = useSelector((state) => state.auth.login.currentUser);
 
     return (
@@ -67,6 +67,7 @@ function App() {
                         path="/manage/medical-record/:userId"
                         element={<MedicalRecord />}
                     />
+                    <Route exact path="/test" element={<Test />} />
                 </Routes>
             </div>
             <Toaster
