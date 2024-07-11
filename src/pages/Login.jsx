@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
 import LoginForm from "../components/auth/LoginForm";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import HomePage from "./clinics/HomePage";
 
 const Login = () => {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
-    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         navigate("/");
-    //     }
-    // }, []);
+    if (currentUser) return <HomePage />;
 
     return (
         <section className="w-full bg-gradient-to-r from-violet-500 to-fuchsia-500">

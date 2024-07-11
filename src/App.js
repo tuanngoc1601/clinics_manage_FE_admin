@@ -14,6 +14,7 @@ import DoctorInfoManage from "./pages/clinics/DoctorInfoManage";
 import DoctorScheduleManage from "./pages/clinics/DoctorScheduleManage";
 import BookingManage from "./pages/clinics/BookingManage";
 import MedicalRecord from "./pages/clinics/MedicalRecord";
+import BookingDetail from "./pages/clinics/BookingDetail";
 
 function App() {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
@@ -66,25 +67,17 @@ function App() {
                         path="/manage/medical-record/:userId"
                         element={<MedicalRecord />}
                     />
+                    <Route
+                        exact
+                        path="/manage/bookings/:bookingId"
+                        element={<BookingDetail />}
+                    />
                 </Routes>
             </div>
             <Toaster
                 containerClassName="font-casual text-sm font-semibold"
                 position="top-right"
                 gutter={8}
-                // toastOptions={{
-                //     success: {
-                //         className: "bg-green-400",
-                //         style: {
-                //             background: "green",
-                //         },
-                //     },
-                //     error: {
-                //         style: {
-                //             background: "red",
-                //         },
-                //     },
-                // }}
             />
         </div>
     );

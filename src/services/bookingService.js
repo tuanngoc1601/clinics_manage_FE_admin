@@ -19,3 +19,7 @@ export const confirmBookingService = (booking_id) => {
 export const getUserBookingService = (userId) => {
     return axiosClientToken.get(`/api/v1/booking/get-booking-user/${userId}`);
 };
+
+export const getBookingDetailService = (booking_id) => {
+    return axiosClientToken.get(`/api/v1/booking/booking-detail/${booking_id}`);
+};

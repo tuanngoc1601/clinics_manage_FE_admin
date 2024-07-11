@@ -35,7 +35,7 @@ const Paginate = ({ total, page, setPage }) => {
             <button
                 type="button"
                 className="px-4 py-2 border rounded"
-                disabled={page === total}
+                disabled={page === Math.ceil(total / 10)}
                 onClick={() => setPage((prev) => prev + 1)}
             >
                 <GrFormNext />

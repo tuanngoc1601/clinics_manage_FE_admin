@@ -1,23 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { navigationLinks } from "../../utils/navigation";
-import { navLinkStyle } from "../../utils/active";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FaHome } from "react-icons/fa";
 
 const Sidebar = () => {
     const currentUser = useSelector((state) => state.auth.login.currentUser);
+    const location = useLocation();
     return (
         <aside
             id="default-sidebar"
             className="fixed top-0 left-0 z-40 w-260 h-screen transition-transform -translate-x-full sm:translate-x-0"
         >
             <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-                <h3 className="text-white font-bold text-xl text-center mt-4">{currentUser?.["Clinic.name"]}</h3>
+                <h3 className="text-white font-bold text-xl text-center mt-4">
+                    {currentUser?.["Clinic.name"]}
+                </h3>
                 <ul className="space-y-2 font-medium mt-6">
+                <li>
+                        <Link
+                            to={"/"}
+                            className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${
+                                location.pathname === "/"
+                                    ? "bg-gray-700"
+                                    : ""
+                            }`}
+                        >
+                            <FaHome className="w-5 h-5"/>
+                            <span className="flex-1 ms-3 whitespace-nowrap">
+                                Trang chủ
+                            </span>
+                        </Link>
+                    </li>
                     <li>
                         <Link
                             to={"/manage/bookings"}
-                            className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                            className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${
+                                location.pathname.includes("/manage/bookings")
+                                    ? "bg-gray-700"
+                                    : ""
+                            }`}
                         >
                             <svg
                                 className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -39,7 +60,12 @@ const Sidebar = () => {
                     <li>
                         <Link
                             to={"/manage/users"}
-                            className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                            className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${
+                                location.pathname.includes("/manage/users") ||
+                                location.pathname.includes("/medical-record")
+                                    ? "bg-gray-700"
+                                    : ""
+                            }`}
                         >
                             <svg
                                 className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -58,7 +84,11 @@ const Sidebar = () => {
                     <li>
                         <Link
                             to={"/manage/doctors"}
-                            className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                            className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${
+                                location.pathname.includes("/manage/doctor")
+                                    ? "bg-gray-700"
+                                    : ""
+                            }`}
                         >
                             <svg
                                 className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -77,7 +107,11 @@ const Sidebar = () => {
                     <li>
                         <Link
                             to={"/manage/schedules"}
-                            className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                            className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${
+                                location.pathname.includes("/manage/schedules")
+                                    ? "bg-gray-700"
+                                    : ""
+                            }`}
                         >
                             <svg
                                 className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"

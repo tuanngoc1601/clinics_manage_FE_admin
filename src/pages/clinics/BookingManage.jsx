@@ -53,101 +53,6 @@ const BookingManage = () => {
     }, [currentUser?.clinic_id]);
     return (
         <div className="flex flex-col items-start justify-center gap-4 pt-6 w-full pb-6">
-            {/* <DataTable
-                title={"Lịch hẹn"}
-                columns={[
-                    {
-                        title: "Tên",
-                        field: "patient_name",
-                    },
-                    {
-                        title: "Số điện thoại",
-                        field: "phone_number",
-                    },
-                    {
-                        title: "Ngày khám",
-                        field: "Doctor_Schedule.booking_date",
-                    },
-                    {
-                        title: "Triệu chứng",
-                        field: "reason",
-                    },
-                    {
-                        title: "Giới tính",
-                        field: "gender",
-                    },
-                    {
-                        title: "Trạng thái",
-                        field: "Doctor_Schedule.status.value",
-                        render: (rowData) => (
-                            <span
-                                className={`px-2 py-0.5 rounded-md ${
-                                    rowData.Doctor_Schedule.status.value ===
-                                    "pendding"
-                                        ? "bg-green-300"
-                                        : rowData.Doctor_Schedule.status
-                                              .value === "booked"
-                                        ? "bg-slate-400 cursor-pointer"
-                                        : "bg-orange-400 cursor-pointer"
-                                }`}
-                            >
-                                {rowData.Doctor_Schedule.status.value}
-                            </span>
-                        ),
-                    },
-                ]}
-                data={data}
-                actions={[
-                    (rowData) => {
-                        return {
-                            icon: () => (
-                                <CheckIcon
-                                    className={`${
-                                        rowData.Doctor_Schedule.status.value !==
-                                        "pendding"
-                                            ? "text-gray-400"
-                                            : "text-green-400"
-                                    }`}
-                                />
-                            ),
-                            tooltip: "Confirm booking",
-                            disabled:
-                                rowData.Doctor_Schedule.status.value !==
-                                "pendding",
-                            onClick: async (event, rowData) => {
-                                const res =
-                                    await bookingService.confirmBookingService(
-                                        rowData.id
-                                    );
-                                if (res.status === 200) {
-                                    toast.success("Confirmed booking!");
-                                    const bookings =
-                                        await bookingService.getBookingClinicService(
-                                            currentUser?.clinic_id
-                                        );
-                                    setData(bookings.data.data);
-                                } else {
-                                    toast.error("Confirm failed!");
-                                }
-                            },
-                        };
-                    },
-                    {
-                        icon: () => <EditIcon className="text-orange-400" />,
-                        tooltip: "Edit Data",
-                        onClick: (event, rowData) => {
-                            navigate(`/manage/doctor-info/${rowData.id}`);
-                        },
-                    },
-                    {
-                        icon: () => <DeleteIcon className="text-red-400" />,
-                        tooltip: "Delete Data",
-                        onClick: (event, rowData) => {
-                            alert("You want to delete " + rowData.id);
-                        },
-                    },
-                ]}
-            /> */}
             <h2 className="text-xl font-semibold uppercase">
                 Danh sách Lịch hẹn
             </h2>
@@ -242,7 +147,9 @@ const BookingManage = () => {
                                         type="button"
                                         className="text-xl text-orange-400"
                                         onClick={() =>
-                                            navigate(`/manage/doctor-info`)
+                                            navigate(
+                                                `/manage/bookings/${booking.id}`
+                                            )
                                         }
                                     >
                                         <MdEdit />
